@@ -237,6 +237,14 @@ item.cooked_aubergine.name=烤茄子
 item.stuffed_aubergine.name=酿茄子
 item.assorted_seeds.name=混合种子
 item.cooked_seeds.name=烤种子
+item.copper_helmet.name=铜头盔
+item.copper_chestplate.name=铜胸甲
+item.copper_leggings.name=铜护腿
+item.copper_boots.name=铜靴子
+item.silver_helmet.name=银头盔
+item.silver_chestplate.name=银胸甲
+item.silver_leggings.name=银护腿
+item.silver_boots.name=银靴子
 
 message.squid.cooldown=鱿鱼还没有产生出足够的墨水！
 
@@ -314,3 +322,6 @@ mysticalworld.guidebook.landing_text=这是一个美丽的魔法世界！$(br2)�
 mysticalworld.patchouli.standard_group=常规数量生成。
 mysticalworld.patchouli.groups=%s到%s个一起生成。
 mysticalworld.patchouli.biomes=生成于下列群系：%s
+
+# Attributes
+attribute.name.mysticalworld.blessed=祝福
