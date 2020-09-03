@@ -54,16 +54,6 @@ public class BeetleEntity extends TameableEntity {
     return stack.getItem() == Items.MELON_SLICE;
   }
 
-//	@Override
-//	public void setScaleForAge(boolean child) {
-//		this.setScale(child ? 0.5f : 1.0f);
-//	}
-
-  @Override
-  public boolean isAIDisabled() {
-    return false;
-  }
-
   @Override
   public boolean processInteract(PlayerEntity player, Hand hand) {
     if (super.processInteract(player, hand)) {
@@ -75,7 +65,8 @@ public class BeetleEntity extends TameableEntity {
     if (this.isTamed()) {
       if (this.isOwner(player) && !this.world.isRemote && !this.isBreedingItem(itemstack)) {
         if (itemstack.isEmpty() && player.isSneaking()) {
-          if (!world.isRemote) {
+          // TODO Temporarily disabled
+          if (!world.isRemote && false) {
             // Try some shoulder surfing!
             LazyOptional<IPlayerShoulderCapability> laycap = player.getCapability(Capabilities.SHOULDER_CAPABILITY);
             if (laycap.isPresent()) {
@@ -117,10 +108,8 @@ public class BeetleEntity extends TameableEntity {
           this.setTamedBy(player);
           this.navigator.clearPath();
           this.sitGoal.setSitting(true);
-          this.playTameEffect(true);
           this.world.setEntityState(this, (byte) 7);
         } else {
-          this.playTameEffect(false);
           this.world.setEntityState(this, (byte) 6);
         }
       }

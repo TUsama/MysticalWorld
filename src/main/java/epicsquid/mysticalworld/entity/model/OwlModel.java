@@ -1,8 +1,6 @@
 package epicsquid.mysticalworld.entity.model;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Lists;
 import epicsquid.mysticalworld.entity.OwlEntity;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
@@ -26,6 +24,7 @@ public class OwlModel extends AgeableModel<OwlEntity> {
   private State state = State.STANDING;
 
   public OwlModel() {
+    super(true, 5.0f, 2.0f);
     textureWidth = 64;
     textureHeight = 64;
 

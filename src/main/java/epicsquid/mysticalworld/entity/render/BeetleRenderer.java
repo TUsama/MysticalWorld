@@ -1,12 +1,10 @@
 package epicsquid.mysticalworld.entity.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.platform.GlStateManager;
 import epicsquid.mysticalworld.MysticalWorld;
 import epicsquid.mysticalworld.entity.BeetleEntity;
 import epicsquid.mysticalworld.entity.model.BeetleModel;
 import epicsquid.mysticalworld.entity.model.ModelHolder;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -30,15 +28,8 @@ public class BeetleRenderer extends MobRenderer<BeetleEntity, BeetleModel> {
   }
 
   @Override
-  public void render(BeetleEntity entity, float yaw, float partialTicks, MatrixStack matrix, @Nonnull IRenderTypeBuffer buffer, int light)  {
-    matrix.push();
-    if (entity.getGrowingAge() < 0) {
-      matrix.scale(0.3f, 0.3f, 0.3f);
-    } else {
-      matrix.scale(0.45f, 0.45f, 0.45f);
-    }
-    super.render(entity, yaw, partialTicks, matrix, buffer, light);
-    matrix.pop();
+  protected void preRenderCallback(BeetleEntity entity, MatrixStack matrix, float partialTickTime) {
+    matrix.scale(0.45f, 0.45f, 0.45f);
   }
 
   @Override

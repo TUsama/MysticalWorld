@@ -8,7 +8,6 @@ import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariableProvider;
 import vazkii.patchouli.common.util.ItemStackUtil;
 
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -40,11 +39,14 @@ public class AnimalSpawnInfo implements IComponentProcessor {
       case "endermini":
         this.animal = ConfigManager.ENDERMINI_CONFIG;
         break;
-      case "lavacat":
+      case "lava_cat":
         this.animal = ConfigManager.LAVA_CAT_CONFIG;
         break;
       case "owl":
         this.animal = ConfigManager.OWL_CONFIG;
+        break;
+      case "hell_sprout":
+        this.animal = ConfigManager.HELL_SPROUT_CONFIG;
         break;
       default:
         this.animal = null;
@@ -77,6 +79,9 @@ public class AnimalSpawnInfo implements IComponentProcessor {
       }
     }
     if (s.startsWith("title")) {
+      if (this.animalName.contains("_")) {
+        return WordUtils.capitalize(this.animalName.replace("_", " "));
+      }
       return WordUtils.capitalize(this.animalName.toLowerCase());
     }
     if (s.startsWith("item")) {

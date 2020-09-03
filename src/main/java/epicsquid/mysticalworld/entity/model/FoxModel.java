@@ -1,10 +1,8 @@
 package epicsquid.mysticalworld.entity.model;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import epicsquid.mysticalworld.entity.SilverFoxEntity;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 import javax.annotation.Nonnull;
@@ -33,6 +31,7 @@ public class FoxModel extends AgeableModel<SilverFoxEntity> {
   private int state = 0;
 
   public FoxModel() {
+    super(true, 5.0f, 2.0f);
     this.textureWidth = 32;
     this.textureHeight = 32;
     this.backL = new ModelRenderer(this, 0, 16);

@@ -7,7 +7,9 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.GhastEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.ChickenEntity;
+import net.minecraft.entity.passive.RabbitEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -78,17 +80,7 @@ public class SilverFoxEntity extends TameableEntity {
     targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
     targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
     targetSelector.addGoal(3, new HurtByTargetGoal(this));
-    targetSelector.addGoal(4, new NonTamedTargetGoal<ChickenEntity>(this, ChickenEntity.class, false, e -> e instanceof ChickenEntity));
-  }
-
-//	@Override
-//	public void setScaleForAge(boolean child) {
-//		this.setScale(child ? 0.5f : 1.0f);
-//	}
-
-  @Override
-  public boolean isAIDisabled() {
-    return false;
+    targetSelector.addGoal(4, new NonTamedTargetGoal<>(this, AnimalEntity.class, false, e -> e instanceof ChickenEntity || e instanceof RabbitEntity));
   }
 
   @Override
@@ -260,10 +252,8 @@ public class SilverFoxEntity extends TameableEntity {
           this.setAttackTarget(null);
           this.sitGoal.setSitting(true);
           this.setHealth(20.0F);
-          this.playTameEffect(true);
           this.world.setEntityState(this, (byte) 7);
         } else {
-          this.playTameEffect(false);
           this.world.setEntityState(this, (byte) 6);
         }
       }

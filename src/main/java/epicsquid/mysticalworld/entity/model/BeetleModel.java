@@ -29,6 +29,7 @@ public class BeetleModel extends AgeableModel<BeetleEntity> {
   private ModelRenderer antennaR2_1;
 
   public BeetleModel() {
+    super(true, 5.0f, 2.0f);
     this.textureWidth = 32;
     this.textureHeight = 32;
     this.legL2 = new ModelRenderer(this, 18, 6);
@@ -131,12 +132,6 @@ public class BeetleModel extends AgeableModel<BeetleEntity> {
     this.wingL.rotateAngleY = 0.17453292519943295F + 0.0872664626F * getBobble(45, ageInTicks);
     this.wingR.rotateAngleY = -0.17453292519943295F - 0.0872664626F * getBobble(160, ageInTicks);
 //    if (state != ModelState.SHOULDER) {
-    this.legL1.rotateAngleZ = limbSwingAmount * getSwing(0, ageInTicks) - 0.2617993877991494F;
-    this.legL2.rotateAngleZ = limbSwingAmount * getSwing(120, ageInTicks) - 0.2617993877991494F;
-    this.legL3.rotateAngleZ = limbSwingAmount * getSwing(240, ageInTicks) - 0.2617993877991494F;
-    this.legR1.rotateAngleZ = limbSwingAmount * getSwing(180, ageInTicks) + 0.2617993877991494F;
-    this.legR2.rotateAngleZ = limbSwingAmount * getSwing(300, ageInTicks) + 0.2617993877991494F;
-    this.legR3.rotateAngleZ = limbSwingAmount * getSwing(60, ageInTicks) + 0.2617993877991494F;
     //  }
     if (beetleEntity.isSitting()) {
       this.body.setRotationPoint(0.0F, 20.0F, -4.0F);
@@ -155,6 +150,12 @@ public class BeetleModel extends AgeableModel<BeetleEntity> {
       this.setRotateAngle(legL2, 0.0F, 0.0F, -0.2617993877991494F);
       this.setRotateAngle(legL3, 0.2617993877991494F, 0.0F, -0.2617993877991494F);
     }
+    this.legL1.rotateAngleZ = limbSwingAmount * getSwing(0, ageInTicks) - 0.2617993877991494F;
+    this.legL2.rotateAngleZ = limbSwingAmount * getSwing(120, ageInTicks) - 0.2617993877991494F;
+    this.legL3.rotateAngleZ = limbSwingAmount * getSwing(240, ageInTicks) - 0.2617993877991494F;
+    this.legR1.rotateAngleZ = limbSwingAmount * getSwing(180, ageInTicks) + 0.2617993877991494F;
+    this.legR2.rotateAngleZ = limbSwingAmount * getSwing(300, ageInTicks) + 0.2617993877991494F;
+    this.legR3.rotateAngleZ = limbSwingAmount * getSwing(60, ageInTicks) + 0.2617993877991494F;
   }
 
   /**

@@ -14,6 +14,7 @@ public class SproutModel extends AgeableModel<SproutEntity> {
   private ModelRenderer leafBottom;
 
   public SproutModel() {
+    super(true, 5.0f, 2.0f);
     textureWidth = 32;
     textureHeight = 32;
 
@@ -51,12 +52,12 @@ public class SproutModel extends AgeableModel<SproutEntity> {
 
   @Override
   protected Iterable<ModelRenderer> getHeadParts() {
-    return ImmutableList.of(head, leafTop, leafBottom);
+    return ImmutableList.of();
   }
 
   @Override
   protected Iterable<ModelRenderer> getBodyParts() {
-    return ImmutableList.of(legL, legR);
+    return ImmutableList.of(head, leafTop, leafBottom, legL, legR);
   }
 
   @Override

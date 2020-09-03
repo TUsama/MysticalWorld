@@ -1,10 +1,8 @@
 package epicsquid.mysticalworld.entity.model;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import epicsquid.mysticalworld.entity.FrogEntity;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 import javax.annotation.Nonnull;
@@ -23,6 +21,7 @@ public class FrogModel extends AgeableModel<FrogEntity> {
   private ModelRenderer head;
 
   public FrogModel() {
+    super(true, 5.0f, 2.0f);
     this.textureWidth = 16;
     this.textureHeight = 16;
     this.head = new ModelRenderer(this, 4, 3);
